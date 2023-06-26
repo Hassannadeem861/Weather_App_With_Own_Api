@@ -30,14 +30,30 @@
 
 
             /* background: url(./torsten-dederichs-gT4CV0juw4s-unsplash.jpg); */
-            background: url(./Rain.gif);
+            /* background: url(./Rain.gif); */
             /* background: url(./Hassan.gif); */
             /* background: url("https://source.unsplash.com/1370x600/?"); */
-            background-repeat: no-repeat;
-            background-size: cover;
+            /* background-repeat: no-repeat; */
+            /* background-size: cover; */
             /* width: 100px; */
-            background-size: 1370px;
+            /* background-size: 1370px; */
             /* background-position-x: 100px; */
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 95vh;
+            margin: 0;
+            /* background-color: #222; */
+            /* background: url('https://source.unsplash.com/1600x900/?landscape'); */
+            background-image: url('https://source.unsplash.com/1600x900/?landscape');
+            /* background-repeat: no-repeat; */
+            /* background-position: fixed; */
+            /* background-size: cover; */
+            /* font-family: 'Roboto', sans-serif; */
+            /* font-family: sans-serif; */
+            font-family: "Poppins", "sans-serif";
+            /* font-size: 120%; */
         }
 
         /* .heading h1 {
@@ -56,17 +72,22 @@
         }
 
         #cityName {
-           margin-top: 18em;
+            margin-top: 5em;
             width: 500px;
-            padding: 1em ;
+            padding: 1em;
             border-radius: 10px;
             /* font-weight: bold; */
         }
 
-        #btn{
-           
-            padding: 0.8em;
+
+
+        #btn {
+            background-color: bisque;
+            padding: 15px;
+            border-radius: 10px;
         }
+
+
 
         #city {
             font-family: serif;
@@ -91,8 +112,7 @@
     <form id="input" onsubmit="getWeather(event)">
 
         <!-- <label for="cityName" id="city">City :</label> -->
-        <input type="text" id="cityName" name="cityName"
-                placeholder="Enter Your City Name" required>
+        <input type="text" id="cityName" name="cityName" placeholder="Enter Your City Name" required>
         <button type="submit" id="btn">Search</button>
 
         <!-- <i class="fa fa-search" id="search"></i> -->
@@ -111,7 +131,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <!-- // Axious Link -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    
+
     <script type="module">
 
         let timerInterval
@@ -138,7 +158,7 @@
         })
 
         //Code Start
-        
+
         window.getWeather = (event) => {
 
             event.preventDefault()
@@ -148,7 +168,7 @@
             // let apiKey = "9a2fa1d23bd03f187e478c39b3ea14d4"
             let cityName = document.querySelector("#cityName").value
 
-            let now = moment().format('dddd MMMM Do hh:mm A')
+            // let now = moment().format('dddd MMMM Do hh:mm A')
 
             // Make a request for a user with a given ID
             axios.get(`http://localhost:3000/weather/${cityName}`)
@@ -165,7 +185,7 @@
                     }).then((result) => {
                         /* Read more about isConfirmed, isDenied below */
                         if (result.isConfirmed) {
-                            Swal.fire(`Current Temperature is ${response.data.temperature}`)
+                            Swal.fire(`Current Temperature of ${response.data.city} is ${response.data.temperature}`)
                             //of ${response.data.name}
                         } else if (result.isDenied) {
                             Swal.fire('Changes are not saved', '', 'info')
