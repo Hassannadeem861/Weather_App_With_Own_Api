@@ -1,17 +1,15 @@
 // console.log("Hello World Express Server Side");
 
 import express from 'express';
-import cors from "cors";
+import cors from 'cors';
 import path from 'path';
-const __dirname = path.resolve()
-
-
+const __dirname = path.resolve();
 const app = express()
 app.use(cors())
 
 
 
- 
+
 
 // app.get('/', (req, res) => {
 //     console.log('Hello World!', new Date)
@@ -25,7 +23,7 @@ app.get('/profile', (req, res) => {
 })
 
 app.get('/weather/:cityName', (req, res) => {
-    console.log('Hello World Dummy Weather App', new Date());
+    // console.log('Hello World Dummy Weather App', new Date());
 
     let weatherData = {
         tokyo: {
@@ -449,9 +447,9 @@ app.get('/weather/:cityName', (req, res) => {
 
 
     let userInputCityName = req.params.cityName.toLowerCase();
-    console.log("userInputCityName :",userInputCityName);
+    console.log("userInputCityName :", userInputCityName);
 
-    let weatherDataToSend =  weatherData[userInputCityName]
+    let weatherDataToSend = weatherData[userInputCityName]
 
     if (weatherDataToSend) {
 
@@ -467,8 +465,7 @@ app.get('/weather/:cityName', (req, res) => {
 })
 
 
-app.use(express.static(path.join(__dirname, 'public')));
-
+app.use('/', express.static(path.join(__dirname, 'public')))
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     console.log(`Example app listening on port ${PORT}`)
