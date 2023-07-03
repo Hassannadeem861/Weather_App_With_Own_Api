@@ -120,10 +120,10 @@
     </form>
 
     <div id="result" class="result">
-        <!-- <h2 id="celsius"></h2>
+        <h2 id="celsius"></h2>
         <p id="humidity"></p>
         <p id="max"></p>
-        <p id="min"></p> -->
+        <p id="min"></p>
     </div>
 
 
@@ -168,6 +168,8 @@
             // let apiKey = "9a2fa1d23bd03f187e478c39b3ea14d4"
             let cityName = document.querySelector("#cityName").value
 
+            
+
             // let now = moment().format('dddd MMMM Do hh:mm A')
 
             // Make a request for a user with a given ID
@@ -186,8 +188,12 @@
                         /* Read more about isConfirmed, isDenied below */
                         if (result.isConfirmed) {
                             Swal.fire(`Current Temperature of ${response.data.city} is ${response.data.temperature}
+
                              Humidity: ${response.data.humidity}
-                             windSpeed: ${response.data.windSpeed} `)
+
+                             windSpeed: ${response.data.windSpeed} 
+
+                             max: ${response.data.max}`)
                             //of ${response.data.name}
                         } else if (result.isDenied) {
                             Swal.fire('Changes are not saved', '', 'info')
