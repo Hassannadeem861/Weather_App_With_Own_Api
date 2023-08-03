@@ -1,5 +1,5 @@
 
-Swal.fire('Weather App')
+Swal.fire('DUMMY WEATHER APP')
 
 //Code Start
 
@@ -15,7 +15,7 @@ window.getWeather = (event) => {
     // let now = moment().format('dddd MMMM Do hh:mm A')
 
     // Make a request for a user with a given ID
-    axios.get(`http://localhost:3000/weather/${cityName}`)
+    axios.get(`/weather/${cityName}`)
         //https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric
         .then(function (response) {
             // handle success
