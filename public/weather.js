@@ -1,4 +1,6 @@
 
+Swal.fire('Weather App')
+
 //Code Start
 
 window.getWeather = (event) => {
@@ -27,8 +29,14 @@ window.getWeather = (event) => {
             }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    Swal.fire(`Current Temperature of ${response.data.city} is ${response.data.temperature}`)
-                    //of ${response.data.name}
+                    Swal.fire(`Current Temperature of ${response.data.city} is ${response.data.temperature} 
+                     Humidity: ${response.data.humidity}
+                     windSpeed: ${response.data.windSpeed} 
+                     temperature: ${response.data.temperature}
+                     min: ${response.data.min} 
+                     max: ${response.data.max} 
+                     `)
+
                 } else if (result.isDenied) {
                     Swal.fire('Changes are not saved', '', 'info')
                 }
